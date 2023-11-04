@@ -1,0 +1,38 @@
+[
+    {
+      "subject": "Mathematics",
+      "topic": "Algebra",
+      "description": "Join us for an interactive online group study session on algebra. We will cover key concepts and problem-solving strategies. All skill levels are welcome!",
+      "imageURL": "https://i.ibb.co/BPQJ450/windows-p74ndn-YWRY4-unsplash.jpg"
+    },
+    {
+      "subject": "History",
+      "topic": "World History",
+      "description": "Embark on a fascinating journey through world history. Our online group study will explore ancient civilizations, major events, and their impact on the present.",
+      "imageURL": "https://i.ibb.co/XZBfrMG/jud-mackrill-Of-m3h-Mso-AA-unsplash.jpg"
+    },
+    {
+      "subject": "Computer Science",
+      "topic": "Python Programming",
+      "description": "Enhance your Python skills through our online group study. We'll tackle coding challenges and discuss best practices.",
+      "imageURL": "https://i.ibb.co/SyhHkVk/cherrydeck-r-MILC1-PIw-M0-unsplash.jpg"
+    },
+    {
+      "subject": "Literature",
+      "topic": "Shakespearean Sonnets",
+      "description": "Join our literary discussion on Shakespearean sonnets. We'll analyze and appreciate the beauty of Shakespeare's poetic works.",
+      "imageURL": "https://i.ibb.co/bFrckns/brooke-cagle-g1-Kr4-Ozfoac-unsplash.jpg"
+    },
+    {
+      "subject": "Biology",
+      "topic": "Cell Biology",
+      "description": "Dive into the fascinating world of cell biology in our online group study. We'll explore cellular structures, functions, and processes.",
+      "imageURL": "https://i.ibb.co/cQHMq4s/mimi-thian-vd-XMSi-X-n6-M-unsplash.jpg"
+    },
+    {
+      "subject": "Language Learning",
+      "topic": "Spanish Conversation",
+      "description": "Practice your Spanish conversational skills in a friendly online group study setting. All levels of proficiency are welcome!",
+      "imageURL": "https://i.ibb.co/qgH6xBw/annie-spratt-h-Cb3l-IB8-L8-E-unsplash.jpg"
+    }
+  ]
