@@ -17,33 +17,57 @@ const Drawer = () => {
     }
 
     return (
-        <div className="flex flex-col mt-3 justify-center items-center gap-5">
-        {/* Navbar menu content here */}
-        <NavLink
-            to="/"
-            className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "bg-gradient-to-r from-[#DD2955] to-orange-800 w-full text-center py-3 rounded-lg text-xl text-white font-semibold" : ""
-            }
-        >
-            <span className="text-xl font-semibold">Home</span>
-        </NavLink>
-        {user?.email ? <div>
-                            <div className="dropdown dropdown-end">
-                                <label tabIndex={0} className="btn btn-ghost rounded-btn"><img src={user?.photoURL} className="rounded-full w-[60px]" alt="" /></label>
-                                <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                    <button onClick={handleLogout} className="text-[#DD2955] text-xl">Logout</button>
-                                </ul>
-                            </div>
-                        </div>
-                            : <NavLink
-                                to="/login"
-                                className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "bg-gradient-to-r from-[#DD2955] to-orange-800 w-full text-center py-3 rounded-lg text-xl text-white font-semibold" : ""
-                                }
-                            >
-                                <span className="text-2xl font-bold">Login</span>
-                            </NavLink>}
-    </div>
+        <div className="flex flex-col mt-3 justify-center items-center gap-12">
+            {/* Navbar menu content here */}
+            <NavLink
+                to="/"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "border border-[#DD2955] w-full text-center py-2 rounded-lg text-lg text-[#DD2955] font-semibold" : "font-bold text-lg"
+                }
+            >
+                Home
+            </NavLink>
+            <NavLink
+                to="/createAssignment"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "border border-[#DD2955] w-full text-center py-2 rounded-lg text-lg text-[#DD2955] font-semibold" : "font-bold text-lg"
+                }
+            >
+                Create Assignment
+            </NavLink>
+            <NavLink
+                to="/allAssignment"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "border border-[#DD2955] w-full text-center py-2 rounded-lg text-lg text-[#DD2955] font-semibold" : "font-bold text-lg"
+                }
+            >
+                All Assignment
+            </NavLink>
+            <NavLink
+                to="/myAssignments"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "border border-[#DD2955] w-full text-center py-2 rounded-lg text-lg text-[#DD2955] font-semibold" : "font-bold text-lg"
+                }
+            >
+                My Assignments
+            </NavLink>
+            {user?.email ? <div>
+                <div className="dropdown dropdown-end">
+                    <label tabIndex={0} className="btn btn-ghost rounded-btn"><img src={user?.photoURL} className="rounded-full w-[60px]" alt="font-bold" /></label>
+                    <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+                        <button onClick={handleLogout} className="text-[#DD2955] text-lg">Logout</button>
+                    </ul>
+                </div>
+            </div>
+                : <NavLink
+                    to="/login"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "border border-[#DD2955] w-full text-center py-2 rounded-lg text-lg text-[#DD2955] font-semibold" : "font-bold text-lg"
+                    }
+                >
+                    Login
+                </NavLink>}
+        </div>
     );
 };
 

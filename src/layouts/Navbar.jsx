@@ -25,22 +25,46 @@ const Navbar = () => {
                     </label>
                 </div>
                 <div className="flex-1">
-                    <img className="w-[200px]" src="https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6089361c2665da7acc8cda8d_StudyTogetherColour.svg" alt="" />
+                    <img className="w-[150px]" src="https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6089361c2665da7acc8cda8d_StudyTogetherColour.svg" alt="font-bold" />
                 </div>
                 <div className="flex-none hidden lg:block">
-                    <div className="flex justify-center items-center gap-5">
+                    <div className="flex justify-center items-center gap-8">
                         {/* Navbar menu content here */}
                         <NavLink
                             to="/"
                             className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "bg-gradient-to-r from-[#DD2955] to-orange-800 py-1 px-3 md:py-2 md:px-5 rounded-lg text-xl text-white font-semibold" : ""
+                                isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg  text-[#DD2955] font-semibold" : "font-bold"
                             }
                         >
-                            <span className="text-xl font-semibold">Home</span>
+                            Home
+                        </NavLink>
+                        <NavLink
+                            to="/createAssignment"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg  text-[#DD2955] font-semibold" : "font-bold"
+                            }
+                        >
+                            <span>Create Assignment</span>
+                        </NavLink>
+                        <NavLink
+                            to="/allAssignment"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg  text-[#DD2955] font-semibold" : "font-bold"
+                            }
+                        >
+                            <span>All Assignment</span>
+                        </NavLink>
+                        <NavLink
+                            to="/myAssignments"
+                            className={({ isActive, isPending }) =>
+                                isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg  text-[#DD2955] font-semibold" : "font-bold"
+                            }
+                        >
+                            <span>My Assignments</span>
                         </NavLink>
                         {user?.email ? <div>
                             <div className="dropdown dropdown-end">
-                                <label tabIndex={0} className="btn btn-ghost rounded-btn"><img src={user?.photoURL} className="rounded-full w-[60px]" alt="" /></label>
+                                <label tabIndex={0} className="btn btn-ghost rounded-btn"><img src={user?.photoURL} className="rounded-full w-[60px]" alt="text-xl font-semibold" /></label>
                                 <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
                                     <button onClick={handleLogout} className="text-[#DD2955] text-xl">Logout</button>
                                 </ul>
@@ -49,10 +73,10 @@ const Navbar = () => {
                             : <NavLink
                                 to="/login"
                                 className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "bg-gradient-to-r from-[#DD2955] to-orange-800 py-1 px-3 md:py-2 md:px-5 rounded-lg text-xl text-white font-semibold" : ""
+                                    isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg  text-[#DD2955] font-semibold" : "font-bold"
                                 }
                             >
-                                <span className="text-xl font-semibold">Login</span>
+                                <span>Login</span>
                             </NavLink>}
                     </div>
                 </div>
