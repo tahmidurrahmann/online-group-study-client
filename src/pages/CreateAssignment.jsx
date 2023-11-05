@@ -2,8 +2,12 @@ import { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import useAxios from "../hooks/useAxios";
+import Swal from "sweetalert2";
 
 const CreateAssignment = () => {
+
+    const axios = useAxios();
 
     const [startDate, setStartDate] = useState(new Date());
     const { user } = useAuth();
@@ -27,6 +31,19 @@ const CreateAssignment = () => {
             difficult,
         }
         console.log(assignmentData);
+        axios.post('/create-assignment', assignmentData)
+        .then(res => {
+            if(res?.data?.insertedId){
+                Swal.fire(
+                    'Well done!',
+                    'You submitted your assignment!',
+                    'success'
+                  )
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
     return (
@@ -83,7 +100,7 @@ const CreateAssignment = () => {
                     <textarea required name="description" className="w-full p-4 mb-4 border rounded-md bg-gradient-to-r from-white to-gray-400" placeholder="Describe your assignment here" cols="15" rows="6"></textarea>
                 </div>
                     <div className="w-3/4 mx-auto my-4">
-                    <input type="submit" className="w-full text-white font-medium py-1 lg:py-3.5 rounded bg-gradient-to-r from-[#DD2955] to-orange-800" value="Submit" /> </div> 
+                    <input type="submit" className="w-full text-white font-medium py-1 lg:py-3.5 rounded bg-gradient-to-r from-[#DD2955] to-orange-800" value="Submit your Assignment" /> </div> 
             </form>
         </div>
     );

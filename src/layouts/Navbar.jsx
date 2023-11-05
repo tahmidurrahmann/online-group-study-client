@@ -63,7 +63,7 @@ const Navbar = () => {
                             <span>My Assignments</span>
                         </NavLink>
                         {user?.email ? <div>
-                            <div className="dropdown dropdown-end">
+                            <div className="dropdown dropdown-hover">
                                 <label tabIndex={0} className="btn btn-ghost rounded-btn"><img src={user?.photoURL} className="rounded-full w-[60px]" alt="text-xl font-semibold" /></label>
                                 <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
                                     <button onClick={handleLogout} className="text-[#DD2955] text-xl">Logout</button>
