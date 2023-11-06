@@ -5,9 +5,6 @@ const PatchAssignment = () => {
 
     const {id} = useParams()
 
-    // useEffect(()=>{
-    //     fetch('')
-    // },[])
 
     const navigate = useNavigate();
 

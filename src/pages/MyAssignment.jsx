@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import MyAssignments from "./MyAssignments";
+import { useState } from "react";
 
 const MyAssignment = () => {
 
     const myAssignments = useLoaderData();
+
+    const [remainingAssignment, setRemainingAssignment] = useState(myAssignments);
 
     return (
         <div className="overflow-x-auto min-h-screen">
@@ -18,7 +21,7 @@ const MyAssignment = () => {
                 </thead>
                 <tbody>
                     {
-                        myAssignments.map((assignment, index) => <MyAssignments assignment={assignment} key={index}></MyAssignments>)
+                        remainingAssignment?.map((assignment, index) => <MyAssignments assignment={assignment} remainingAssignment={remainingAssignment} setRemainingAssignment={setRemainingAssignment} key={index}></MyAssignments>)
                     }
                 </tbody>
             </table>

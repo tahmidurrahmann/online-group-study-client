@@ -1,8 +1,14 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const MyAssignments = ({ assignment }) => {
+const MyAssignments = ({ assignment, remainingAssignment, setRemainingAssignment }) => {
 
-    const { _id , title, mark, userEmail, photo, userName } = assignment || {};
+    const { _id, title, mark, userEmail, photo, userName } = assignment || {};
+
+    useEffect( () => {
+        const remaining = remainingAssignment.filter(remaining => remaining.status !== "Completed");
+        setRemainingAssignment(remaining);
+    }, [remainingAssignment, setRemainingAssignment])
 
     // const handleMarkSubmit = (e) => {
     //     e.preventDefault();
@@ -46,7 +52,7 @@ const MyAssignments = ({ assignment }) => {
             </td>
             <th>Pending</th>
             <Link to={`/patchAssignment/${_id}`}><p className="mt-7 w-28 text-center py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955]">Give Mark</p></Link>
-            
+
             {/* <button className="mt-6 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955]" onClick={() => document.getElementById('my_modal_3').showModal()}>Give Mark</button>
             <dialog id="my_modal_3" className="modal">
                 <div className="modal-box">
