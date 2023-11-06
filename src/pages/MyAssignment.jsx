@@ -4,10 +4,9 @@ import MyAssignments from "./MyAssignments";
 const MyAssignment = () => {
 
     const myAssignments = useLoaderData();
-    console.log(myAssignments);
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto min-h-screen">
             <table className="table">
                 <thead>
                     <tr>

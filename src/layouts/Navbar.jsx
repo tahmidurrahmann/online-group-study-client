@@ -52,21 +52,30 @@ const Navbar = () => {
                                 isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg  text-[#DD2955] font-semibold" : "font-bold"
                             }
                         >
-                            <span>All Assignment</span>
+                            <span>All Assignments</span>
                         </NavLink>
                         <NavLink
-                            to="/myAssignments"
+                            to="/submittedAssignments"
                             className={({ isActive, isPending }) =>
                                 isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg  text-[#DD2955] font-semibold" : "font-bold"
                             }
                         >
-                            <span>My Assignments</span>
+                            <span>Submitted Assignments</span>
                         </NavLink>
                         {user?.email ? <div>
-                            <div className="dropdown dropdown-hover">
+                            <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost rounded-btn"><img src={user?.photoURL} className="rounded-full w-[60px]" alt="text-xl font-semibold" /></label>
-                                <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-                                    <button onClick={handleLogout} className="text-[#DD2955] text-xl">Logout</button>
+                                <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4 space-y-3">
+                                    <h1 className="text-blue-600 text-lg text-center font-bold">{user?.displayName}</h1>
+                                    <NavLink
+                                        to="/myAssignments"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 text-center rounded-lg  text-[#DD2955] font-semibold" : "my-3 font-bold text-center"
+                                        }
+                                    >
+                                        <span>My Assignments</span>
+                                    </NavLink>
+                                    <button onClick={handleLogout} className="text-[#DD2955] text-xl font-extrabold">Logout</button>
                                 </ul>
                             </div>
                         </div>
