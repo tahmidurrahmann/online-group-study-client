@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 const AllAssignment = ({ assignment, assignmentData, setAssignmentData }) => {
 
     const { _id, difficult, mark, photo, title } = assignment;
-    console.log(assignment);
     const { user } = useAuth();
 
     const handleDelete = (id) => {
