@@ -5,7 +5,7 @@ const MyAssignments = ({ assignment, remainingAssignment, setRemainingAssignment
 
     const { _id, title, mark, userEmail, photo, userName } = assignment || {};
 
-    useEffect( () => {
+    useEffect(() => {
         const remaining = remainingAssignment.filter(remaining => remaining.status !== "Completed");
         setRemainingAssignment(remaining);
     }, [remainingAssignment, setRemainingAssignment])
@@ -20,15 +20,14 @@ const MyAssignments = ({ assignment, remainingAssignment, setRemainingAssignment
                         </div>
                     </div>
                     <div className="flex flex-col gap-1">
-                        <p className="font-bold">{title}</p>
-                        <p className="font-bold">{mark} Marks</p>
+                        <p className="font-medium md:text-lg">{title}</p>
+                        <p className="font-medium md:text-lg">{mark} Marks</p>
                     </div>
                 </div>
             </td>
             <td>
-                {userEmail}
-                <br />
-                <span className="font-bold">{userName}</span>
+                <span className="font-medium md:text-lg">{userName}</span><br />
+                <p className="text-base">{userEmail}</p>
             </td>
             <th>Pending</th>
             <Link to={`/patchAssignment/${_id}`}><p className="mt-7 w-28 text-center py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955]">Give Mark</p></Link>

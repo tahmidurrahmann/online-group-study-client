@@ -55,14 +55,14 @@ const AllAssignment = ({ assignment, assignmentData, setAssignmentData }) => {
                 <div className="card shadow-xl bg-gradient-to-r from-white via-white to-gray-200">
                     <img className='rounded-t-lg w-full h-[250px]' src={photo} alt="Shoes" />
                     <div className="space-y-5">
-                        <h2 className="text-center my-4 text-2xl font-bold">{title}</h2>
+                        <h2 className="text-center my-4 text-2xl font-semibold">{title}</h2>
                         <div className='flex justify-evenly items-center'>
                             <p className='font-semibold'>{mark} Marks</p>
                             <p className='font-semibold'>{difficult} Level</p>
                         </div>
-                        <div className="flex flex-row items-center justify-center gap-1.5">
-                            <Link to={`/allAssignment/${_id}`}><button className="px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3">View Assignment</button></Link>
-                            <Link to={`/update/${_id}`}><button className="mb-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955]">Update Assignment</button></Link>
+                        <div className="flex flex-row items-center justify-center gap-2">
+                            <Link to={`/allAssignment/${_id}`}><button className="px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3">View </button></Link>
+                            <Link to={`/update/${_id}`}><button className="mb-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955]">Update </button></Link>
                             <button onClick={() => handleDelete(_id)} className="mb-3 px-5 py-1 text-xl hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg text-[#DD2955]"><AiFillDelete></AiFillDelete></button>
                         </div>
                     </div>

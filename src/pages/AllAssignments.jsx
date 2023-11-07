@@ -64,7 +64,7 @@ const AllAssignments = () => {
 
     return (
         <div className="container mx-auto">
-            <select className="w-1/5 mt-10 bg-gradient-to-r from-white to-gray-200 border p-2 rounded-lg" onChange={handleDifficultLevel} id="">
+            <select className="w-2/5 mx-auto lg:w-1/5 ml-6 mt-10 bg-gradient-to-r from-white to-gray-200 border p-2 rounded-lg" onChange={handleDifficultLevel} id="">
                 <option value="all">All</option>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
@@ -75,7 +75,7 @@ const AllAssignments = () => {
                     assignmentData?.map((assignment, index) => <AllAssignment key={index} assignment={assignment} assignmentData={assignmentData} setAssignmentData={setAssignmentData}></AllAssignment>)
                 }
             </div>
-            <div className="flex gap-3 justify-center items-center my-6"> <button onClick={handlePrevPage} className="gap-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3">Prev</button>
+            <div className="flex flex-wrap gap-3 justify-center items-center my-6"> <button onClick={handlePrevPage} className="gap-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3">Prev</button>
                 {pages.map(page => <button className={currentPage === page ? 'gap-3 px-5 py-1 text-white bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg  mb-3 font-bold' : "gap-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3"} onClick={() => setCurrentPage(page)} key={page}>{page}</button>)} <button onClick={handleNextPage} className="gap-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3">Next</button>
                 <select className="gap-3 px-5 py-1 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3" onChange={handleSelectOption} name="" id="">
                     <option value="5">5</option>

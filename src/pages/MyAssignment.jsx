@@ -12,7 +12,7 @@ const MyAssignment = () => {
         <div className="overflow-x-auto min-h-screen bg-gradient-to-r from-gray-200 via-white to-gray-200">
             <table className="table">
                 <thead>
-                    <tr>
+                    <tr className="text-base">
                         <th>Assignment</th>
                         <th>Examinee Name</th>
                         <th>Status</th>

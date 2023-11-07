@@ -19,7 +19,7 @@ const MineAssignments = () => {
         <div className="overflow-x-auto min-h-screen bg-gradient-to-r from-gray-200 via-white to-gray-200">
             <table className="table">
                 <thead>
-                    <tr>
+                    <tr className="text-base">
                         <th>Assignment Title</th>
                         <th>Assignment Status</th>
                         <th>Assignment Mark</th>

@@ -55,14 +55,14 @@ const CreateAssignment = () => {
                         <label className="label">
                             <span className="label-text">Title</span>
                         </label>
-                        <input type="text" name="title" placeholder="Title" className="input input-bordered bg-gradient-to-r from-white to-gray-400" required />
+                        <input type="text" name="title" placeholder="Title" className="input input-bordered" required />
                     </div>
                     <div className="flex-1">
                         <div className="flex-1 form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" name="email" defaultValue={user?.email} placeholder="email" className="input input-bordered bg-gradient-to-r from-white to-gray-400" required />
+                            <input type="email" name="email" defaultValue={user?.email} placeholder="email" className="input input-bordered" required />
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@ const CreateAssignment = () => {
                             <label className="label">
                                 <span className="label-text">Mark</span>
                             </label>
-                            <input type="text" name="mark" placeholder="Mark" className="input input-bordered bg-gradient-to-r from-white to-gray-400" required />
+                            <input type="text" name="mark" placeholder="Mark" className="input input-bordered" required />
                         </div>
                     </div>
                     <div className="flex-1">
@@ -80,7 +80,7 @@ const CreateAssignment = () => {
                             <label className="label">
                                 <span className="label-text">Thumbnail Image URL</span>
                             </label>
-                            <input type="text" name="photo" placeholder="Thumbnail Image URL" className="input input-bordered bg-gradient-to-r from-white to-gray-400" required />
+                            <input type="text" name="photo" placeholder="Thumbnail Image URL" className="input input-bordered" required />
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ const CreateAssignment = () => {
                     </div>
                 </div>
                 <div className="w-3/4 mx-auto">
-                    <textarea required name="description" className="w-full p-4 mb-4 border rounded-md bg-gradient-to-r from-white to-gray-400" placeholder="Describe your assignment here" cols="15" rows="6"></textarea>
+                    <textarea required name="description" className="w-full p-4 mb-4 border rounded-md" placeholder="Describe your assignment here" cols="15" rows="6"></textarea>
                 </div>
                     <div className="w-3/4 mx-auto my-4">
                     <input type="submit" className="w-full text-white font-medium py-1 lg:py-3.5 rounded bg-gradient-to-r from-[#DD2955] to-orange-800" value="Submit your Assignment" /> </div> 

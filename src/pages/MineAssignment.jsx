@@ -7,16 +7,16 @@ const MineAssignment = ({ assignment }) => {
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="flex flex-col gap-1">
-                        <p className="font-bold">{title}</p>
+                        <p className="font-medium md:text-lg">{title}</p>
                     </div>
                 </div>
             </td>
             <td>
-                <p>{status? status : "Pending"}</p>
+                <p className={status ? "text-blue-600 md:text-lg font-medium" : 'text-[#DD2955] font-medium md:text-lg'}>{status? status : "Pending"}</p>
             </td>
-            <th>{mark}</th>
-            <td>{giveMark}</td>
-            <td>{feedback}</td>
+            <th className="md:text-lg">{mark}</th>
+            <td className={giveMark ? "md:text-lg" : ""}>{giveMark? giveMark : "Not Given"}</td>
+            <td className={feedback ? "md:text-lg" : ""}>{feedback? feedback : "Not Given"}</td>
         </tr>
     );
 };
