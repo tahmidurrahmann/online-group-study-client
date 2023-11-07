@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import AllAssignment from "./AllAssignment";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const AllAssignments = () => {
 
@@ -8,23 +8,27 @@ const AllAssignments = () => {
 
     
     const [assignmentData, setAssignmentData] = useState(submittedData);
-    const [difficultLevel, setDifficultLevel] = useState("");
+    const [difficultLevel, setDifficultLevel] = useState("all");
 
     const handleDifficultLevel = (e) => {
         setDifficultLevel(e.target.value);
-        // const levels = submittedData.filter(level => level?.difficult == difficultLevel);
-        // setAssignmentData(levels)
     }
-
-    // useEffect(() => {
-    //     const levels = submittedData.filter(level => level.difficult === difficultLevel);
-    //     setAssignmentData(levels)
-    // }, [submittedData, difficultLevel])
+console.log(difficultLevel);
+    useEffect(() => {
+        if(difficultLevel === "all"){
+            setAssignmentData(submittedData);
+        }
+        else{
+            const levels = submittedData.filter(level => level.difficult === difficultLevel);
+            console.log(levels, difficultLevel);
+            setAssignmentData(levels) 
+        }
+    }, [submittedData, difficultLevel])
 
     return (
         <div className="container mx-auto">
-            <select className="w-1/5 border p-2 rounded-lg" value={difficultLevel} onChange={handleDifficultLevel} id="">
-                <option hidden value="All">All</option>
+            <select className="w-1/5 mt-10 bg-gradient-to-r from-white to-gray-200 border p-2 rounded-lg" onChange={handleDifficultLevel} id="">
+                <option value="all">All</option>
                 <option value="Easy">Easy</option>
                 <option value="Medium">Medium</option>
                 <option value="Hard">Hard</option>

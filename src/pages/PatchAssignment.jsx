@@ -1,10 +1,12 @@
-
-import { useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 
 const PatchAssignment = () => {
 
-    const {id} = useParams()
+    const { id } = useParams()
 
+    const patchData = useLoaderData();
+
+    const { pdf, quickNote } = patchData;
 
     const navigate = useNavigate();
 
@@ -13,26 +15,28 @@ const PatchAssignment = () => {
         const form = e.target;
         const giveMark = form.giveMark.value;
         const feedback = form.feedback.value;
-        const status =  "Completed";
-        const submittedValue = {giveMark, feedback, status};
+        const status = "Completed";
+        const submittedValue = { giveMark, feedback, status };
         console.log(submittedValue);
-        fetch(`http://localhost:5010/take-assignment/${id}`,{
-            method : "PATCH",
-            headers : {
-                "Content-Type" : "application/json",
+        fetch(`http://localhost:5010/take-assignment/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
             },
-            body : JSON.stringify(submittedValue)
+            body: JSON.stringify(submittedValue)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data?.modifiedCount){
-                navigate('/myAssignments')
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.modifiedCount) {
+                    navigate('/myAssignments')
+                }
+            })
     }
 
     return (
         <div>
+            <h3 className="font-bold text-lg text-center mt-12">PDF LINK :<a className="text-blue-600" href={pdf}><span className="ml-3"> Click here for see this PDF</span></a></h3>
+                    <p className="text-center py-4 text-lg font-semibold">Quick Note : <span className="ml-3">{quickNote}</span></p>
             <form onSubmit={handleMarkSubmit} className="w-1/2 mx-auto min-h-screen">
                 <div className="form-control">
                     <label className="label">
