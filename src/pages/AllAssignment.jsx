@@ -51,10 +51,9 @@ const AllAssignment = ({ assignment, assignmentData, setAssignmentData }) => {
     }
 
     return (
-        <div>
-            <div className="">
+        <div className='p-10 md:p-4 rounded-lg'>
                 <div className="card shadow-xl bg-gradient-to-r from-white via-white to-gray-200">
-                    <figure><img className='w-3/4 mx-auto mt-6' src={photo} alt="Shoes" /></figure>
+                    <img className='rounded-t-lg w-full h-[250px]' src={photo} alt="Shoes" />
                     <div className="space-y-5">
                         <h2 className="text-center my-4 text-2xl font-bold">{title}</h2>
                         <div className='flex justify-evenly items-center'>
@@ -68,7 +67,6 @@ const AllAssignment = ({ assignment, assignmentData, setAssignmentData }) => {
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     );
 };
