@@ -1,7 +1,7 @@
 const MineAssignment = ({ assignment }) => {
 
     const { title, mark, giveMark, feedback, status } = assignment;
-    console.log(assignment);
+    
     return (
         <tr>
             <td>

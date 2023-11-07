@@ -44,7 +44,7 @@ const UpdateAssignment = () => {
                     'Good job!',
                     'You Updated your assignment!',
                     'success'
-                  )
+                    )
                     navigate('/allAssignment')
             }
             else{

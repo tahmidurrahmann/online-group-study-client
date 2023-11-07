@@ -30,7 +30,7 @@ const routes = createBrowserRouter([
             {
                 path: "/allAssignment",
                 element: <AllAssignments></AllAssignments>,
-                loader: () => fetch(`http://localhost:5010/create-assignment`)
+                loader : () => fetch('http://localhost:5010/create-assignment'),
             },
             {
                 path: "/allAssignment/:id",
@@ -54,7 +54,7 @@ const routes = createBrowserRouter([
             {
                 path: "/submittedAssignments",
                 element: <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>,
-                loader : () => fetch(`http://localhost:5010/take-assignment`)
+                loader : () => fetch(`http://localhost:5010/take-assignment`,{credentials : "include"})
             },
             {
                 path: "/login",

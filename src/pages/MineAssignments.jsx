@@ -10,13 +10,13 @@ const MineAssignments = () => {
 
     const url = `http://localhost:5010/take-assignment?userEmail=${userEmail}`
     useEffect(() => {
-        fetch(url)
+        fetch(url,{credentials : "include"})
             .then(res => res.json())
             .then(data => setMineDatas(data))
     }, [url])
 
     return (
-        <div className="overflow-x-auto min-h-screen">
+        <div className="overflow-x-auto min-h-screen bg-gradient-to-r from-gray-200 via-white to-gray-200">
             <table className="table">
                 <thead>
                     <tr>

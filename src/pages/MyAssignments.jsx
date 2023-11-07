@@ -9,7 +9,7 @@ const MyAssignments = ({ assignment, remainingAssignment, setRemainingAssignment
         const remaining = remainingAssignment.filter(remaining => remaining.status !== "Completed");
         setRemainingAssignment(remaining);
     }, [remainingAssignment, setRemainingAssignment])
-    
+
     return (
         <tr>
             <td>
@@ -28,7 +28,7 @@ const MyAssignments = ({ assignment, remainingAssignment, setRemainingAssignment
             <td>
                 {userEmail}
                 <br />
-                <span className="badge badge-ghost badge-base font-bold">{userName}</span>
+                <span className="font-bold">{userName}</span>
             </td>
             <th>Pending</th>
             <Link to={`/patchAssignment/${_id}`}><p className="mt-7 w-28 text-center py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955]">Give Mark</p></Link>

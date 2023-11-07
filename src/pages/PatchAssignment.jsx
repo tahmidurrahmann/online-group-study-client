@@ -1,12 +1,16 @@
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+// import { Document, Page } from 'react-pdf';
 
 const PatchAssignment = () => {
 
     const { id } = useParams()
 
     const patchData = useLoaderData();
-
     const { pdf, quickNote } = patchData;
+    console.log(pdf);
+
+    // const pdfURL = "/pdf"
+
 
     const navigate = useNavigate();
 
@@ -36,7 +40,10 @@ const PatchAssignment = () => {
     return (
         <div>
             <h3 className="font-bold text-lg text-center mt-12">PDF LINK :<a className="text-blue-600" href={pdf}><span className="ml-3"> Click here for see this PDF</span></a></h3>
-                    <p className="w-1/2 mx-auto py-4 text-lg font-semibold">Quick Note : <span className="ml-3">{quickNote}</span></p>
+            <p className="w-1/2 mx-auto py-4 text-lg font-semibold">Quick Note : <span className="ml-3">{quickNote}</span></p>
+            {/* <Document file={pdfURL}>
+                <Page pageNumber={1} />
+            </Document> */}
             <form onSubmit={handleMarkSubmit} className="w-1/2 mx-auto min-h-screen">
                 <div className="form-control">
                     <label className="label">

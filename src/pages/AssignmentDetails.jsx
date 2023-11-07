@@ -13,12 +13,13 @@ const AssignmentDetails = () => {
     const {user} = useAuth();
     const userEmail = user?.email;
     const userName = user?.displayName;
-
+    
     const handlePdfSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
         const pdf = form.pdf.value;
         const quickNote = form.quickNote.value;
+        
         const links = { pdf, quickNote, date, description, difficult, mark, photo, title, userEmail, userName }
         axios.post('/take-assignment', links)
             .then(res => {
@@ -51,8 +52,9 @@ const AssignmentDetails = () => {
                                             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                                         </form>
                                         <form onSubmit={handlePdfSubmit}>
-                                            <div className="form-control">
-                                                <input type="text" name="pdf" placeholder=" PDF link of your assignment" className="mt-8 w-full my-4 input input-bordered bg-gradient-to-r from-white to-gray-400" />
+                                            <div className="form-control mt-8">
+                                                {/* <input type="text" name="pdf" placeholder=" PDF link of your assignment" className="mt-8 w-full my-4 input input-bordered bg-gradient-to-r from-white to-gray-400" /> */}
+                                                <input type="file" className="form-control w-full bg-gradient-to-r rounded from-white to-gray-400" name="pdf" id="" /> <br />
                                             </div>
                                             <textarea name="quickNote" className="w-full p-4 mb-4 border rounded-md bg-gradient-to-r from-white to-gray-400" placeholder="You can note somethings here" cols="3" rows="3"></textarea>
                                             <div className="flex justify-center">

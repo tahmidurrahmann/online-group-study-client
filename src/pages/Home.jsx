@@ -5,9 +5,9 @@ import Feature from "./Features";
 const Home = () => {
     return (
         <div>
-           <Banner></Banner>
-           <Feature></Feature>
-           <Faq></Faq>
+            <Banner></Banner>
+            <Feature></Feature>
+            <Faq></Faq>
         </div>
     );
 };

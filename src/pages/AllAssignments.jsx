@@ -12,7 +12,6 @@ const AllAssignments = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(5);
     const numberOfPage = Math.ceil(totalCount / itemsPerPage);
-    // console.log(numberOfPage);
 
     const pages = [];
     for (let i = 0; i < numberOfPage; i++) {
@@ -76,7 +75,7 @@ const AllAssignments = () => {
                     assignmentData?.map((assignment, index) => <AllAssignment key={index} assignment={assignment} assignmentData={assignmentData} setAssignmentData={setAssignmentData}></AllAssignment>)
                 }
             </div>
-            <div className="flex gap-3 justify-center items-center my-28"> <button onClick={handlePrevPage} className="gap-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3">Prev</button>
+            <div className="flex gap-3 justify-center items-center my-6"> <button onClick={handlePrevPage} className="gap-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3">Prev</button>
                 {pages.map(page => <button className={currentPage === page ? 'gap-3 px-5 py-1 text-white bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg  mb-3 font-bold' : "gap-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3"} onClick={() => setCurrentPage(page)} key={page}>{page}</button>)} <button onClick={handleNextPage} className="gap-3 px-5 py-1 hover:animate-background hover:text-white hover:bg-gradient-to-r from-[#DD2955] to-orange-800 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3">Next</button>
                 <select className="gap-3 px-5 py-1 rounded-lg border border-[#DD2955] text-[#DD2955] mb-3" onChange={handleSelectOption} name="" id="">
                     <option value="5">5</option>
