@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Document, Page } from "react-pdf";
+// import { Document, Page } from "react-pdf";
 import { useNavigate, useParams } from "react-router-dom";
 
 const PatchAssignment = () => {
@@ -7,20 +7,20 @@ const PatchAssignment = () => {
     const { id } = useParams()
     const [patchData, setPatchData] = useState([]);
 
-    const [numPages, setNumPages] = useState(null);
-    const [pageNumber, setPageNumber] = useState(1);
+    // const [numPages, setNumPages] = useState(null);
+    // const [pageNumber, setPageNumber] = useState(1);
 
-    const onDocumentLoadSuccess = ({ numPages }) => {
-        setNumPages(numPages);
-    };
+    // const onDocumentLoadSuccess = ({ numPages }) => {
+    //     setNumPages(numPages);
+    // };
 
-    const goToPrevPage = () => {
-        setPageNumber((prevPageNumber) => prevPageNumber - 1);
-    };
+    // const goToPrevPage = () => {
+    //     setPageNumber((prevPageNumber) => prevPageNumber - 1);
+    // };
 
-    const goToNextPage = () => {
-        setPageNumber((prevPageNumber) => prevPageNumber + 1);
-    };
+    // const goToNextPage = () => {
+    //     setPageNumber((prevPageNumber) => prevPageNumber + 1);
+    // };
 
     useEffect(() => {
         fetch(`https://online-group-study-server-blush.vercel.app/take-assignment/${id}`)
@@ -64,7 +64,7 @@ const PatchAssignment = () => {
             {/* <Document file={pdfURL}>
                 <Page pageNumber={1} />
             </Document> */}
-            <div>
+            {/* <div>
                 <nav>
                     <button onClick={goToPrevPage}>Prev</button>
                     <button onClick={goToNextPage}>Next</button>
@@ -79,9 +79,9 @@ const PatchAssignment = () => {
                 <p>
                     Page {pageNumber} of {numPages}
                 </p>
-            </div>
+            </div> */}
             <form onSubmit={handleMarkSubmit} className="w-1/2 mx-auto min-h-screen">
-                <div className="form-control">
+                <div className="form-control my-10">
                     <label className="label">
                         <span className="label-text">Give Marks</span>
                     </label>
