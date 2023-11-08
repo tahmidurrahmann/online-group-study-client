@@ -1,22 +1,35 @@
 import { useEffect, useState } from "react";
+import { Document, Page } from "react-pdf";
 import { useNavigate, useParams } from "react-router-dom";
-// import { Document, Page } from 'react-pdf';
 
 const PatchAssignment = () => {
 
     const { id } = useParams()
     const [patchData, setPatchData] = useState([]);
 
-    useEffect(()=>{
+    const [numPages, setNumPages] = useState(null);
+    const [pageNumber, setPageNumber] = useState(1);
+
+    const onDocumentLoadSuccess = ({ numPages }) => {
+        setNumPages(numPages);
+    };
+
+    const goToPrevPage = () => {
+        setPageNumber((prevPageNumber) => prevPageNumber - 1);
+    };
+
+    const goToNextPage = () => {
+        setPageNumber((prevPageNumber) => prevPageNumber + 1);
+    };
+
+    useEffect(() => {
         fetch(`https://online-group-study-server-blush.vercel.app/take-assignment/${id}`)
-        .then(res => res.json())
-        .then(data => setPatchData(data))
-    },[id])
+            .then(res => res.json())
+            .then(data => setPatchData(data))
+    }, [id])
 
     const { pdf, quickNote } = patchData;
     console.log(pdf);
-
-    // const pdfURL = "/pdf"
 
 
     const navigate = useNavigate();
@@ -51,6 +64,22 @@ const PatchAssignment = () => {
             {/* <Document file={pdfURL}>
                 <Page pageNumber={1} />
             </Document> */}
+            <div>
+                <nav>
+                    <button onClick={goToPrevPage}>Prev</button>
+                    <button onClick={goToNextPage}>Next</button>
+                </nav>
+
+                <div style={{ width: 600 }}>
+                    <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
+                        <Page pageNumber={pageNumber} width={600} />
+                    </Document>
+                </div>
+
+                <p>
+                    Page {pageNumber} of {numPages}
+                </p>
+            </div>
             <form onSubmit={handleMarkSubmit} className="w-1/2 mx-auto min-h-screen">
                 <div className="form-control">
                     <label className="label">

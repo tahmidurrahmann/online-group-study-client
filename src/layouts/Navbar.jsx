@@ -49,9 +49,9 @@ const Navbar = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </label>
                 </div>
-                <div className="flex-1">
-                    {/* <img className="w-[150px]" src="https://uploads-ssl.webflow.com/60890f6ac44206aef9237eb4/6089361c2665da7acc8cda8d_StudyTogetherColour.svg" alt="font-medium" /> */}
-                    <h1 className="flex text-3xl font-extrabold justify-center items-center"><img className="w-[60px]" src="https://i.ibb.co/9tvcHXG/png-transparent-logo-s-miscellaneous-blue-angle-thumbnail-removebg-preview.png" alt="" />tudyTogether</h1>
+                <div className="flex-1 flex justify-center items-center">
+                    <img className="w-[80px]" src="https://i.ibb.co/dGfkrSG/graduate-hat-and-wifi-logo-design-study-online-logo-concept-free-vector.png" alt="font-medium" />
+                    <h1 className="text-2xl font-extrabold">StudyTogether</h1>
                 </div>
                 <div className="flex-none hidden lg:block">
                     <div className="flex justify-center items-center gap-8">
