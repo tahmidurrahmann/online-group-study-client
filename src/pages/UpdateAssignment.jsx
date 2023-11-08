@@ -1,14 +1,22 @@
-import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {  useNavigate, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 
 const UpdateAssignment = () => {
 
+    const [updateSingleAssignment, setUpdateSingleAssignment] = useState([]);
+    const {id} = useParams();
+    useEffect(()=>{
+        fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${id}`,{credentials : "include"})
+        .then(res => res.json())
+        .then(data => setUpdateSingleAssignment(data))
+    },[id])
+
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate()
-    const updateSingleAssignment = useLoaderData();
+    // const updateSingleAssignment = useLoaderData();
     const { _id , title,
         email,
         mark,

@@ -1,11 +1,20 @@
-import { useLoaderData } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
+import { useEffect, useState } from "react";
 
 const AssignmentDetails = () => {
 
-    const details = useLoaderData();
+    const {id} = useParams();
+    const [details, setDetails] = useState([])
+    useEffect(()=>{
+        fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${id}`,{credentials : "include"})
+        .then(res => res.json())
+        .then(data => setDetails(data))
+    },[id])
+
+    // const details = useLoaderData();
     const { date, description, difficult, mark, photo, title } = details;
 
     const axios = useAxios();
