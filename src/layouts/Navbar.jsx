@@ -125,7 +125,7 @@ const Navbar = () => {
                 {user?.email ? <div className="flex justify-center items-center gap-3">
                     <button onClick={handleLogout} className="flex justify-center gap-2 items-center text-white bg-gradient-to-r from-[#DD2955] to-orange-800 py-2 px-4 rounded-full"><AiOutlineLogout className="text-lg"></AiOutlineLogout>Logout</button>
                     <div className="dropdown dropdown-hover">
-                        <label tabIndex={0} className="btn btn-ghost rounded-btn"><img src={user?.photoURL} className="rounded-full w-[60px]" alt="text-xl font-medium" /></label>
+                        <label tabIndex={0} className="btn btn-ghost rounded-btn"><img src={user?.photoURL} className="rounded-full w-[80px] md:w-[60px] lg:mr-32" alt="text-xl font-medium" /></label>
                         <ul tabIndex={0} className="menu dropdown-content z-[1] p-3 shadow bg-base-100 rounded-box w-24 mt-4 space-y-3">
                             <h1 className="text-[#DD2955] text-center font-medium">{user?.displayName}</h1>
                         </ul>

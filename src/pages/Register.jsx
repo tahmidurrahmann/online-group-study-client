@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../pages/register.css"
 import useAuth from "../hooks/useAuth";
 import { FcGoogle } from 'react-icons/fc';
@@ -12,6 +12,7 @@ const Register = () => {
     const { createUser, googleSignIn } = useAuth();
     const [displayError, setDisplayError] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -44,6 +45,7 @@ const Register = () => {
                     photoURL: photo,
                 })
                     .then(() => {
+                        navigate('/')
                         window.location.reload();
                         toast.success('Account created successfully')
                     })

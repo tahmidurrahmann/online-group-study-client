@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useState } from "react";
@@ -10,6 +10,7 @@ const Login = () => {
     const { signIn, googleSignIn } = useAuth();
     const [loginError, setLoginError] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
     
     const handleLogin = (e) => {
         e.preventDefault();
@@ -21,6 +22,7 @@ const Login = () => {
         signIn(email, password)
             .then(() => {
                 toast.success('Log in Successful');
+                navigate('/')
             })
             .catch(error => {
                 const message = error.message;
@@ -32,6 +34,7 @@ const Login = () => {
         googleSignIn()
             .then(() => {
                 toast.success('Google signIn Successful')
+                navigate('/')
             })
             .catch(error => {
                 const message = error.message;
