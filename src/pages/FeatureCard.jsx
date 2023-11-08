@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
+
 const FeatureCard = ({ feature }) => {
-    const {description, imageURL, topic} = feature;
+    const { description, imageURL, topic } = feature;
     return (
         <div className="card bg-base-100 shadow-xl">
             <figure><img className="h-[300px] w-full" src={imageURL} alt="Shoes" /></figure>
