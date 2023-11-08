@@ -121,7 +121,7 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end flex justify-center items-center">
                 {user?.email ? <div className="flex justify-center items-center gap-3">
                     <button onClick={handleLogout} className="flex justify-center gap-2 items-center text-white bg-gradient-to-r from-[#DD2955] to-orange-800 py-2 px-4 rounded-full"><AiOutlineLogout className="text-lg"></AiOutlineLogout>Logout</button>
                     <div className="dropdown dropdown-hover">
@@ -134,7 +134,7 @@ const Navbar = () => {
                     : <NavLink
                         to="/login"
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg  text-[#DD2955] font-medium" : "font-medium"
+                            isPending ? "pending" : isActive ? "border border-[#DD2955] py-1 px-3 rounded-lg text-center text-[#DD2955] font-medium" : "font-medium"
                         }
                     >
                         <span>Login</span>
