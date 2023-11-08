@@ -7,21 +7,6 @@ const PatchAssignment = () => {
     const { id } = useParams()
     const [patchData, setPatchData] = useState([]);
 
-    // const [numPages, setNumPages] = useState(null);
-    // const [pageNumber, setPageNumber] = useState(1);
-
-    // const onDocumentLoadSuccess = ({ numPages }) => {
-    //     setNumPages(numPages);
-    // };
-
-    // const goToPrevPage = () => {
-    //     setPageNumber((prevPageNumber) => prevPageNumber - 1);
-    // };
-
-    // const goToNextPage = () => {
-    //     setPageNumber((prevPageNumber) => prevPageNumber + 1);
-    // };
-
     useEffect(() => {
         fetch(`https://online-group-study-server-blush.vercel.app/take-assignment/${id}`)
             .then(res => res.json())
@@ -29,7 +14,6 @@ const PatchAssignment = () => {
     }, [id])
 
     const { pdf, quickNote } = patchData;
-    console.log(pdf);
 
 
     const navigate = useNavigate();
@@ -61,25 +45,6 @@ const PatchAssignment = () => {
         <div>
             <h3 className="font-bold text-lg text-center mt-12">PDF LINK :<a className="text-blue-600" href={pdf}><span className="ml-3"> Click here for see this PDF</span></a></h3>
             <p className="w-1/2 mx-auto py-4 text-lg font-semibold">Quick Note : <span className="ml-3">{quickNote}</span></p>
-            {/* <Document file={pdfURL}>
-                <Page pageNumber={1} />
-            </Document> */}
-            {/* <div>
-                <nav>
-                    <button onClick={goToPrevPage}>Prev</button>
-                    <button onClick={goToNextPage}>Next</button>
-                </nav>
-
-                <div style={{ width: 600 }}>
-                    <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
-                        <Page pageNumber={pageNumber} width={600} />
-                    </Document>
-                </div>
-
-                <p>
-                    Page {pageNumber} of {numPages}
-                </p>
-            </div> */}
             <form onSubmit={handleMarkSubmit} className="w-1/2 mx-auto min-h-screen">
                 <div className="form-control my-10">
                     <label className="label">

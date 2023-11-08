@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 const FeatureCard = ({ feature }) => {
     const { description, imageURL, topic } = feature;
     return (

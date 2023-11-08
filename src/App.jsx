@@ -1,15 +1,15 @@
 import { Outlet } from "react-router-dom"
-import MainLayout from "./layouts/MainLayout"
 import Footer from "./shared/Footer/Footer"
+import Navbar from "./layouts/Navbar"
+// import Navbar from "./layouts/Navbar"
 
 function App() {
 
   return (
     <>
-      <MainLayout>
-        <Outlet></Outlet>
-        <Footer></Footer>
-      </MainLayout>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </>
   )
 }

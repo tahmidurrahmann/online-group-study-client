@@ -4,9 +4,7 @@ import MineAssignment from "./MineAssignment";
 import axios from "axios";
 
 const MineAssignments = () => {
-
-
-
+    
     const { user } = useAuth();
     console.log(user);
     const userEmail = user.email;
@@ -16,13 +14,6 @@ const MineAssignments = () => {
         axios.get(`https://online-group-study-server-blush.vercel.app/take-assignment?userEmail=${userEmail}`,{withCredentials : true})
         .then(res => setMineDatas(res?.data))
     },[userEmail])
-
-    // useEffect(() => {
-    //     const url = `https://online-group-study-server-blush.vercel.app/take-assignment?userEmail=${userEmail}`
-    //     fetch(url,{credentials : "include"})
-    //         .then(res => res.json())
-    //         .then(data => setMineDatas(data))
-    // }, [ userEmail])
 
     return (
         <div className="overflow-x-auto min-h-screen bg-gradient-to-r from-gray-200 via-white to-gray-200">
