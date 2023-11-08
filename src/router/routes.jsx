@@ -38,8 +38,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/update/:id",
-                element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${params.id}`,{credentials : "include"})
+                element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>
             },
             {
                 path: "/patchAssignment/:id",

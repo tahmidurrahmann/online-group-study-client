@@ -1,23 +1,24 @@
-import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const UpdateAssignment = () => {
 
+    const navigate = useNavigate();
     const [startDate, setStartDate] = useState(new Date());
-    const navigate = useNavigate()
-    const updateSingleAssignment = useLoaderData();
-    console.log(updateSingleAssignment);
-    const { _id , title,
-        email,
-        mark,
-        photo,
-        date,
-        description,
-        difficult, } = updateSingleAssignment;
-        console.log(updateSingleAssignment);
+    const [updateSingleAssignment, setUpdateSingleAssignment] = useState({});
+    const { id } = useParams();
+
+    useEffect(() => {
+        fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${id}`, { credentials: "include" })
+            .then(res => res.json())
+            .then(data => setUpdateSingleAssignment(data))
+    }, [id])
+
+    const { _id, title, email, mark, photo, date, description, difficult } = updateSingleAssignment;
 
     const handleUpdateAssignment = (e) => {
         e.preventDefault();
@@ -30,32 +31,25 @@ const UpdateAssignment = () => {
         const description = form.description.value;
         const difficult = form.difficult.value;
         const data = { title, email, mark, photo, date, description, difficult };
-        console.log(data);
-        fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${_id}`,{
-            method : "PUT",
-            headers : {
-                "Content-Type" : "application/json",
-            },
-            body : JSON.stringify(data)
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data?.modifiedCount){
-                Swal.fire(
-                    'Good job!',
-                    'You Updated your assignment!',
-                    'success'
+
+        axios.put(`https://online-group-study-server-blush.vercel.app/create-assignment/${_id}`, data, { withCredentials: true })
+            .then(res => {
+                if (res?.data?.modifiedCount) {
+                    Swal.fire(
+                        'Good job!',
+                        'You Updated your assignment!',
+                        'success'
                     )
                     navigate('/allAssignment')
-            }
-            else{
-                Swal.fire(
-                    'Cancelled',
-                    'You should change any field for updating your assignment!',
-                    'error'
-                  )
-            }
-        })
+                }
+                else {
+                    Swal.fire(
+                        'Cancelled',
+                        'You should change any field for updating your assignment!',
+                        'error'
+                    )
+                }
+            })
     }
 
     return (
