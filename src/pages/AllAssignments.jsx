@@ -19,13 +19,13 @@ const AllAssignments = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5010/assignmentCount')
+        fetch('https://online-group-study-server-blush.vercel.app/assignmentCount')
             .then(res => res.json())
             .then(data => setTotalCount(data?.count))
     }, [])
 
     useEffect(()=>{
-        fetch(`http://localhost:5010/create-assignment?page=${currentPage}&items=${itemsPerPage}`)
+        fetch(`https://online-group-study-server-blush.vercel.app/create-assignment?page=${currentPage}&items=${itemsPerPage}`)
         .then(res => res.json())
         .then(data => setAssignmentData(data))
     },[currentPage,itemsPerPage])

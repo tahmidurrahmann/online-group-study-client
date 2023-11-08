@@ -19,7 +19,7 @@ const AllAssignment = ({ assignment, assignmentData, setAssignmentData }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5010/create-assignment/${id}`, {
+                fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"

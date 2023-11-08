@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL : "http://localhost:5010",
+    baseURL : "https://online-group-study-server-blush.vercel.app",
     withCredentials : true,
 })
 

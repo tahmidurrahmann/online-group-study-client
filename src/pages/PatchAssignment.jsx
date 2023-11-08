@@ -1,11 +1,18 @@
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 // import { Document, Page } from 'react-pdf';
 
 const PatchAssignment = () => {
 
     const { id } = useParams()
+    const [patchData, setPatchData] = useState([]);
 
-    const patchData = useLoaderData();
+    useEffect(()=>{
+        fetch(`https://online-group-study-server-blush.vercel.app/take-assignment/${id}`)
+        .then(res => res.json())
+        .then(data => setPatchData(data))
+    },[id])
+
     const { pdf, quickNote } = patchData;
     console.log(pdf);
 
@@ -22,7 +29,7 @@ const PatchAssignment = () => {
         const status = "Completed";
         const submittedValue = { giveMark, feedback, status };
         console.log(submittedValue);
-        fetch(`http://localhost:5010/take-assignment/${id}`, {
+        fetch(`https://online-group-study-server-blush.vercel.app/take-assignment/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

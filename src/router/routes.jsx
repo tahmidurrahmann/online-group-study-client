@@ -30,22 +30,21 @@ const routes = createBrowserRouter([
             {
                 path: "/allAssignment",
                 element: <AllAssignments></AllAssignments>,
-                loader : () => fetch('http://localhost:5010/create-assignment'),
+                loader : () => fetch('https://online-group-study-server-blush.vercel.app/create-assignment'),
             },
             {
                 path: "/allAssignment/:id",
                 element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5010/create-assignment/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${params.id}`)
             },
             {
                 path: "/update/:id",
                 element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5010/create-assignment/${params.id}`)
+                loader: ({ params }) => fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${params.id}`)
             },
             {
                 path: "/patchAssignment/:id",
-                element: <PrivateRoute><PatchAssignment></PatchAssignment></PrivateRoute>,
-                loader : ({params}) => fetch(`http://localhost:5010/take-assignment/${params.id}`)
+                element: <PrivateRoute><PatchAssignment></PatchAssignment></PrivateRoute>
             },
             {
                 path: "/myAssignments",
@@ -53,8 +52,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/submittedAssignments",
-                element: <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>,
-                loader : () => fetch(`http://localhost:5010/take-assignment`,{credentials : "include"})
+                element: <PrivateRoute><MyAssignment></MyAssignment></PrivateRoute>
             },
             {
                 path: "/login",

@@ -1,12 +1,17 @@
-import { useLoaderData } from "react-router-dom";
 import MyAssignments from "./MyAssignments";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const MyAssignment = () => {
 
-    const myAssignments = useLoaderData();
+    const [remainingAssignment, setRemainingAssignment] = useState();
 
-    const [remainingAssignment, setRemainingAssignment] = useState(myAssignments);
+    useEffect(()=>{
+        fetch(`https://online-group-study-server-blush.vercel.app/take-assignment`,{credentials : "include"})
+        .then(res => res.json())
+        .then(data => setRemainingAssignment(data))
+    },[])
+
+    
 
     return (
         <div className="overflow-x-auto min-h-screen bg-gradient-to-r from-gray-200 via-white to-gray-200">

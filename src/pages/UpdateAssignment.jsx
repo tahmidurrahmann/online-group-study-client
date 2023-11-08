@@ -30,7 +30,7 @@ const UpdateAssignment = () => {
         const difficult = form.difficult.value;
         const data = { title, email, mark, photo, date, description, difficult };
         console.log(data);
-        fetch(`http://localhost:5010/create-assignment/${_id}`,{
+        fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${_id}`,{
             method : "PUT",
             headers : {
                 "Content-Type" : "application/json",
