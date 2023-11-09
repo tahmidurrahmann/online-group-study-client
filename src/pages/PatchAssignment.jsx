@@ -1,23 +1,36 @@
-import { useEffect, useState } from "react";
-// import { Document, Page } from "react-pdf";
 import { useNavigate, useParams } from "react-router-dom";
-
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import { useQuery } from "@tanstack/react-query";
+import useAxios from "../hooks/useAxios";
+import Loading from "../loader/Loading";
 const PatchAssignment = () => {
 
+    const navigate = useNavigate();
     const { id } = useParams()
-    const [patchData, setPatchData] = useState([]);
+    const axios = useAxios();
 
-    useEffect(() => {
-        fetch(`https://online-group-study-server-blush.vercel.app/take-assignment/${id}`)
-            .then(res => res.json())
-            .then(data => setPatchData(data))
-    }, [id])
+    const getServices = async () => {
+        const res = await axios.get(`/take-assignment/${id}`)
+        return res;
+    }
 
+    const { data: pdfData, isLoading, isError, error } = useQuery({
+        queryKey: ['pdfViewer'],
+        queryFn: getServices,
+    })
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+
+    if (isError) {
+        console.log(error)
+    }
+
+    const patchData = pdfData?.data;
     const { pdf, quickNote } = patchData;
 
-
-    const navigate = useNavigate();
-
+    console.log(pdf);
     const handleMarkSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -43,7 +56,11 @@ const PatchAssignment = () => {
 
     return (
         <div>
-            <h3 className="font-bold text-lg text-center mt-12">PDF LINK :<a className="text-blue-600" href={pdf}><span className="ml-3"> Click here for see this PDF</span></a></h3>
+            <div>
+                <div>
+                    <iframe className="mx-auto w-1/2 h-[600px]" src={pdf} title="Assignment Pdf Link"></iframe>
+                </div>
+            </div>
             <p className="w-1/2 mx-auto py-4 text-lg font-semibold">Quick Note : <span className="ml-3">{quickNote}</span></p>
             <form onSubmit={handleMarkSubmit} className="w-1/2 mx-auto min-h-screen">
                 <div className="form-control my-10">

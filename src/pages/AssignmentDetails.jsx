@@ -1,4 +1,4 @@
-import {  useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useAxios from "../hooks/useAxios";
 import toast from "react-hot-toast";
 import useAuth from "../hooks/useAuth";
@@ -6,29 +6,29 @@ import { useEffect, useState } from "react";
 
 const AssignmentDetails = () => {
 
-    const {id} = useParams();
+    const { id } = useParams();
     const [details, setDetails] = useState([])
-    useEffect(()=>{
-        fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${id}`,{credentials : "include"})
-        .then(res => res.json())
-        .then(data => setDetails(data))
-    },[id])
+    useEffect(() => {
+        fetch(`https://online-group-study-server-blush.vercel.app/create-assignment/${id}`, { credentials: "include" })
+            .then(res => res.json())
+            .then(data => setDetails(data))
+    }, [id])
 
     // const details = useLoaderData();
     const { date, description, difficult, mark, photo, title } = details;
 
     const axios = useAxios();
 
-    const {user} = useAuth();
+    const { user } = useAuth();
     const userEmail = user?.email;
     const userName = user?.displayName;
-    
+
     const handlePdfSubmit = (e) => {
         e.preventDefault();
         const form = e.target;
         const pdf = form.pdf.value;
         const quickNote = form.quickNote.value;
-        
+
         const links = { pdf, quickNote, date, description, difficult, mark, photo, title, userEmail, userName }
         axios.post('/take-assignment', links)
             .then(res => {
@@ -62,8 +62,7 @@ const AssignmentDetails = () => {
                                         </form>
                                         <form onSubmit={handlePdfSubmit}>
                                             <div className="form-control mt-8">
-                                                {/* <input type="text" name="pdf" placeholder=" PDF link of your assignment" className="mt-8 w-full my-4 input input-bordered bg-gradient-to-r from-white to-gray-400" /> */}
-                                                <input type="file" className="form-control w-full bg-gradient-to-r rounded from-white to-gray-400" name="pdf" id="" /> <br />
+                                                <input className="w-full p-4 mb-4 border rounded-md bg-gradient-to-r from-white to-gray-400" type="text" name="pdf" placeholder="Give your pdf link here" required id="1" />  <br />
                                             </div>
                                             <textarea name="quickNote" className="w-full p-4 mb-4 border rounded-md bg-gradient-to-r from-white to-gray-400" placeholder="You can note somethings here" cols="3" rows="3"></textarea>
                                             <div className="flex justify-center">
