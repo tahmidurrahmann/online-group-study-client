@@ -15,7 +15,7 @@
 
 * In this website everyone can see assignments but only registered users can create assignment, view their assignment and mark their and their friends assignment. In Assignments route, anyone can paginate assignments. If they want to see 5 data in one page and other data on other page, then they can. Rather there are options of 5,10,20 data. A user can select one of that and can see that number of assignment in one page. This website is responsive for mobile,tablet and desktop sizes also.
 
-## :computer: Technologies that used to build this website
+## :computer: Technologies that used to build this website : 
 
 <br>
 <p align="center">
