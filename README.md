@@ -2,7 +2,7 @@
 
 ## [Live Link](https://online-group-study-client.web.app/)
 
-# Five project features about my website are here : 
+# Project features about my website are here : 
 
 * My project is about Online Group Study. In this project, every registered user is friend of others nad users can create assignments, complete them, and grade their friends assignments also. In my project's home page a user can see a navbar, a banner, a features of cards, a frequently asked questions and answer and also a footer. In navbar, there are a route named Create assignments, a registered user can see this route and if he/she want then he/she can add assignments. User have to filled all input field. when a user submitted an assignment, then they can see that assignment on Assignments page.
 
